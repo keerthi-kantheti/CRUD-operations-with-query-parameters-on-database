@@ -1,0 +1,118 @@
+//API 1
+
+//SCENARIO   1 valid status
+GET http://localhost:3000/todos/?status=TO%20DO
+### 
+
+//SCENARIO 2 valid priority
+GET http://localhost:3000/todos/?priority=HIGH
+
+### 
+//SCENARIO 3 valid priority and status
+GET http://localhost:3000/todos/?priority=HIGH&status=IN%20PROGRESS 
+
+### 
+//scenario  4 with search_q
+GET http://localhost:3000/todos/?search_q=BUY
+
+### 
+//scanario 5 valid category and status
+GET http://localhost:3000/todos/?category=WORK&status=DONE
+### 
+//scenario 6 valid category
+GET http://localhost:3000/todos/?category=HOME
+###
+//scenario 7 valid category and pririty
+GET http://localhost:3000/todos/?category=LEARNING&priority=HIGH
+
+### 
+//Invalid get status  
+GET http://localhost:3000/todos/?status=TODO
+###
+//INVALID get priority 
+GET http://localhost:3000/todos/?priority=LESS
+
+### 
+//invalid get category 
+GET http://localhost:3000/todos/?category=HOM
+
+
+///API 1 completed all scenarios
+
+### 
+//valid date
+//GET http://localhost:3000/todos/?dueDate=2021-02-22
+### 
+//Invalid get date
+//GET http://localhost:3000/todos/?dueDate=2021-15-15
+
+### 
+
+
+//API 2
+GET http://localhost:3000/todos/5/
+### 
+
+
+//API 3
+GET http://localhost:3000/agenda/?date=2021-02-22
+### 
+//Invalid get date
+GET http://localhost:3000/agenda/?date=2021/12/15
+
+
+### 
+//API 4
+POST http://localhost:3000/todos/
+Content-Type: application/json
+
+{
+ "id": 9,
+ "todo": "Finalize event theme",
+ "priority": "LOW",
+ "status": "TO DO",
+ "category": "HOME",
+ "dueDate": "2021-02-22"
+}  
+
+### 
+
+
+//API 5 valid category
+PUT http://localhost:3000/todos/5
+Content-Type: application/json
+
+ { "category": "HOME" }
+
+### 
+
+//API 5  todo
+
+
+PUT http://localhost:3000/todos/5
+Content-Type: application/json
+
+{
+"todo": "Clean the garden"
+}
+###
+//API 5 valid status
+PUT http://localhost:3000/todos/5
+Content-Type: application/json
+
+{
+    "status":"DONE"
+}
+###
+//API 5 valid due date
+PUT http://localhost:3000/todos/5
+Content-Type: application/json
+
+{
+    "dueDate":"2022-01-22"
+}
+###
+
+
+//API 6
+DELETE  http://localhost:3000/todos/9
